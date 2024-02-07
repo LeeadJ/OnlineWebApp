@@ -25,7 +25,7 @@ app.get('/codeblocks', async (req, res) => {
 
 app.get('/codeblocks/:id', (req, res) => {
     res.status(200);
-    res.send(`Here is my ID ${req.params.id}`);
+    res.send(`Server returned ID: ${req.params.id}`);
 });
 
 app.put('/codeblocks/:id', (req, res) => {
