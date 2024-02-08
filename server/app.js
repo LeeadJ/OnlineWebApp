@@ -1,10 +1,11 @@
 const express = require('express');
+const cors = require('cors')
 const { initDb, getCodeBlocks, createCodeBlocks} = require("./db");
 
 const app = express();
 const PORT = 3002;
 
-// app.use(initDb)
+app.use(cors())
 
 app.listen(PORT, (error) => {
     if (!error) {
