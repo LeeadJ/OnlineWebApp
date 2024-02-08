@@ -5,58 +5,48 @@ const {
 // Connection URL
 const url = 'mongodb://localhost:27017';
 let db;
-let codeBlocksCollection;
-
 
 // Database Name
 const dbName = 'CodeBlocks';
 
-//
-const init = async () => {
+const initDb = async () => {
+    console.log("")
     const client = await MongoClient.connect(url);
-    db = client.db(dbName); //init client once connection established
-    initCodeBlock();
+    console.log(client)
+    db = client.db(dbName)
 }
 
- const initCodeBlock = async () => {
-    codeBlocksCollection = await db.collection("codeblocks");
-}
 const getCodeBlocks = async () => {
-    if (!codeBlocksCollection) await initCodeBlock();
+    let codeBlocksCollection = await db.collection("codeblocks");
     return codeBlocksCollection.find({}).toArray();
 }
 
-/* Created for testing MongoDB compass */
+/*Created for testing compass*/ 
 // const createCodeBlocks = async ({ title, code }) => {
 //     let codeBlocksCollection = await db.collection("codeblocks");
-//     await codeBlocksCollection.insertOne({ title, code });
+//     await codeBlocksCollection.insertOne({ title: "Printe Hello", code: "console.log('Hello World');" });
 // }
 
-/* Update for the student use. */
 const updateCodeBlocks = async (id, updateItem) => {
-    if (!codeBlocksCollection) await initCodeBlock();
-    // create a filter using 'id' to filter the students code
-    const filter = {
-        id
-    };
-
-    /* Set the upsert option to insert a document if no documents matchs the filter */
-    const options = {
-        upsert: true
-    };
-    // Update the entry with the updateItem' value
+    let codeBlocksCollection = await db.collection("codeblocks");
+    // Create a filter for codeblocks with the id
+    const filter = {id};
+    /* Set the upsert option to insert a document if no documents match
+    the filter */
+    const options = { upsert: true };
+    // Specify the update to set a value for id
     const updateDoc = {
-        $set: updateItem
+      $set: updateItem
     };
 }
 
 const deleteCodeBlocks = async (id) => {
-    if (!codeBlocksCollection) await initCodeBlock();
+    let codeBlocksCollection = await db.collection("codeblocks");
     await codeBlocksCollection.delete(id);
 }
 
 module.exports = {
-    init,
+    initDb,
     getCodeBlocks,
     // createCodeBlocks,
     updateCodeBlocks,

@@ -1,13 +1,15 @@
 const express = require('express');
-const { init, getCodeBlocks, createCodeBlocks} = require("./db");
+const { initDb, getCodeBlocks, createCodeBlocks} = require("./db");
 
 const app = express();
-const PORT = 3000;
+const PORT = 3002;
+
+// app.use(initDb)
 
 app.listen(PORT, (error) => {
     if (!error) {
         console.log("Server is Successfully Running, and App is listening on port " + PORT);
-        init()
+        initDb()
             .catch(console.error)
             // .finally(() => client.close());
     } else
@@ -25,7 +27,7 @@ app.get('/codeblocks', async (req, res) => {
 
 app.get('/codeblocks/:id', (req, res) => {
     res.status(200);
-    res.send(`Server returned ID: ${req.params.id}`);
+    res.send(`Here is my ID ${req.params.id}`);
 });
 
 app.put('/codeblocks/:id', (req, res) => {
