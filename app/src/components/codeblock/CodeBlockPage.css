@@ -1,0 +1,21 @@
+/* CodeBlockPage.css */
+
+.code-block-page {
+    text-align: center;
+    padding: 90px; /* Add padding for better presentation */
+  }
+
+  .title{
+    margin: 40px;
+    padding: 30px;
+    font-size: 70px;
+  }
+  
+  textarea {
+    width: 100%; /* Make the textarea take the full width of its container */
+    height: 600px; /* Set the desired height */
+    font-family: 'Courier New', monospace; /* Use a monospace font for code */
+    font-size: 30px; /* Set the desired font size */
+    resize: none; /* Disable textarea resizing */
+  }
+  

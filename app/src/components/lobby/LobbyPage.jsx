@@ -7,8 +7,8 @@ const LobbyPage = props => {
   }
   return (
     <div>
-        <h1>Choose code block</h1>
-        <p>Click a title to see code:</p>
+        <h1>Choose a code block</h1>
+        <p>Click a title to see the code:</p>
         <CodeBlockList setId={handleCodeBlockSelect}/>
     </div>
   )

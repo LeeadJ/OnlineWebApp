@@ -7,6 +7,7 @@ const CodeBlockItem = props => {
   const handleButtonClick = async () => {
     const singleBlock = await getSingleCodeBlock(props.codeBlock._id);
     props.setId(singleBlock._id)
+    
   }
   return (
     <li className='codeLI'>
