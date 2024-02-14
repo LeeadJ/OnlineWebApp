@@ -1,6 +1,6 @@
 const express = require('express');
 const cors = require('cors')
-const { initDb, getCodeBlocks, createCodeBlocks} = require("./db");
+const { initDb, getCodeBlocks, createCodeBlocks, getCodeBlockByID} = require("./db");
 
 const app = express();
 const PORT = 3002;
@@ -26,9 +26,10 @@ app.get('/codeblocks', async (req, res) => {
     res.send(findResult);
 });
 
-app.get('/codeblocks/:id', (req, res) => {
+app.get('/codeblocks/:id', async (req, res) => {
+    let findResult = await getCodeBlockByID(req.params.id);
     res.status(200);
-    res.send(`Here is my ID ${req.params.id}`);
+    res.send(findResult);
 });
 
 app.put('/codeblocks/:id', (req, res) => {

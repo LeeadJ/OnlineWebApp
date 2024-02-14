@@ -1,5 +1,5 @@
 const {
-    MongoClient
+    MongoClient, ObjectId
 } = require('mongodb');
 
 // Connection URL
@@ -19,6 +19,11 @@ const initDb = async () => {
 const getCodeBlocks = async () => {
     let codeBlocksCollection = await db.collection("codeblocks");
     return codeBlocksCollection.find({}).toArray();
+}
+
+const getCodeBlockByID = async (id) => {
+    let codeBlocksCollection = await db.collection("codeblocks");
+    return codeBlocksCollection.find({ _id: new ObjectId(id) }).toArray();
 }
 
 /*Created for testing compass*/ 
@@ -50,5 +55,6 @@ module.exports = {
     getCodeBlocks,
     // createCodeBlocks,
     updateCodeBlocks,
-    deleteCodeBlocks
+    deleteCodeBlocks,
+    getCodeBlockByID
 };
