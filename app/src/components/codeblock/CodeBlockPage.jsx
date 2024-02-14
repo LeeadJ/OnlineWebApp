@@ -18,8 +18,13 @@ const CodeBlockPage = props => {
         updateSingleCodeBlock();
     }, [props.id]);
 
+    const goToLobbyPage = () => {
+        props.setId(null);
+    }
+
     return (
         <div className="code-block-page">
+            <button className="codeBtn" onClick={goToLobbyPage}>Go to Lobby</button>
             {singleCodeBlock && (
                 <>
                     <h2 className="title">{singleCodeBlock.title}</h2>

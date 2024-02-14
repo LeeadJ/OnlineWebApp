@@ -7,8 +7,8 @@ const App = () => {
   // console.log(id)
   return (
     <div className="App">
-      <LobbyPage setId={setId}/>
-      {id && <CodeBlockPage id={id}/>}
+      {!id && <LobbyPage setId={setId}/>}
+      {id && <CodeBlockPage id={id} setId={setId}/>}
     </div>
   );
 }
