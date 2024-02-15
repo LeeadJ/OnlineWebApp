@@ -2,6 +2,7 @@ const {
     MongoClient, ObjectId
 } = require('mongodb');
 
+
 // Connection URL
 const url = 'mongodb://localhost:27017';
 let db;
@@ -35,14 +36,17 @@ const getCodeBlockByID = async (id) => {
 const updateCodeBlocks = async (id, updateItem) => {
     let codeBlocksCollection = await db.collection("codeblocks");
     // Create a filter for codeblocks with the id
-    const filter = {id};
-    /* Set the upsert option to insert a document if no documents match
-    the filter */
-    const options = { upsert: true };
+    const objectId = new ObjectId(id);
+
+    const filter = {_id: objectId };
     // Specify the update to set a value for id
     const updateDoc = {
-      $set: updateItem
+      $set: {
+        title: updateItem.title,
+        code: updateItem.code
+      }
     };
+    const result = await codeBlocksCollection.updateOne(filter, updateDoc);
 }
 
 const deleteCodeBlocks = async (id) => {

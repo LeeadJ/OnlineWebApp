@@ -1,11 +1,11 @@
 import React from 'react'
-import { getSingleCodeBlock } from '../../server';
+import { fetchSingleCodeBlock } from '../../server';
 
 
 
 const CodeBlockItem = props => {
   const handleButtonClick = async () => {
-    const singleBlock = await getSingleCodeBlock(props.codeBlock._id);
+    const singleBlock = await fetchSingleCodeBlock(props.codeBlock._id);
     props.setId(singleBlock._id)
     
   }
