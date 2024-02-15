@@ -1,25 +1,66 @@
 /* CodeBlockPage.css */
 
 .code-block-page {
-    text-align: center;
-    padding: 90px; /* Add padding for better presentation */
-  }
+  /* background-color: white; */
+  text-align: center;
+  padding: 40px;
+  min-height: 80%;
+  min-width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
 
-  .title{
-    margin: 40px;
-    padding: 30px;
-    font-size: 70px;
-  }
-  
-  textarea {
-    width: 100%; /* Make the textarea take the full width of its container */
-    height: 600px; /* Set the desired height */
-    font-family: 'Courier New', monospace; /* Use a monospace font for code */
-    font-size: 30px; /* Set the desired font size */
-    resize: none; /* Disable textarea resizing */
-  }
+.title {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
 
-  .absolute {
+.saveBtn{
+  background-color: #3498db;
+  color: #fff;
+  padding: 10px 15px;
+  margin: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+
+.goToLobbyBtn {
+  background-color: #3498db;
+  position: absolute;
+  top: 10px; 
+  left: 10px; 
+  padding: 10px 20px;
+  font-size: 1.2em;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.saveBtn:hover,
+.goToLobbyBtn:hover {
+  background-color: #3498db;
+  color: white;
+}
+
+textarea {
+  width: 100%;
+  height: 100%;
+  margin-top: 20px;
+  margin-left: 5px;
+  font-family: 'Courier New', monospace;
+  font-size: 19px;
+  resize: none;
+  background-color: transparent;
+  caret-color: white;
+}
+
+.absolute {
   position: absolute;
 }
 
@@ -50,12 +91,6 @@
   color: transparent;
 }
 
-.caret-white {
-  caret-color: white;
-}
-
 .outline-none {
   outline: none;
 }
-
-  

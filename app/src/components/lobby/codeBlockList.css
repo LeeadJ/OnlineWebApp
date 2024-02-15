@@ -1,0 +1,24 @@
+.codeUL {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .codeLI {
+    margin: 10px 0;
+  }
+  
+  .codeBtn {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px 15px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .codeBtn:hover {
+    background-color: #2980b9;
+  }
+  

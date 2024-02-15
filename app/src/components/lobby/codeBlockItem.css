@@ -1,0 +1,19 @@
+.codeBtn {
+    padding: 10px 20px;
+    font-size: 1em;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .codeLI {
+    margin: 10px 0;
+  }
+  
+  .codeBtn:hover {
+    background-color: #45a049;
+  }
+  

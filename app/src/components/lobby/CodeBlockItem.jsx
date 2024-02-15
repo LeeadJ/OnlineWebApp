@@ -1,6 +1,6 @@
 import React from 'react'
 import { fetchSingleCodeBlock } from '../../server';
-
+import './codeBlockItem.css';
 
 
 const CodeBlockItem = props => {
